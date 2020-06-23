@@ -22,7 +22,18 @@ var element = document.getElementsByClassName("fordigit")[0];
 var btn1 = document.getElementsByClassName("btn")[0];
 
 btn1.addEventListener("click", () => {
-    element.innerHTML = Math.floor(
-        Math.random() * (99999999 - 10000000 + 1) + 10000000
-    );
+    arr = [];
+    randomNumberGenerator(Math.floor(Math.random() * 9));
 });
+
+function randomNumberGenerator(num) {
+    if (arr.length == 8) {
+        element.innerText = arr.join("");
+        return arr;
+    } else {
+        if (!arr.includes(num)) {
+            arr.push(num);
+        }
+        randomNumberGenerator(Math.floor(Math.random() * 9));
+    }
+}
