@@ -23,14 +23,17 @@ var btn1 = document.getElementsByClassName("btn")[0];
 
 btn1.addEventListener("click", () => {
     arr = [];
+    count = 0;
     randomNumberGenerator(Math.floor(Math.random() * 9));
 });
 
 function randomNumberGenerator(num) {
     if (arr.length == 8) {
         element.innerText = arr.join("");
+        console.log(count);
         return arr;
     } else {
+        count++;
         if (!arr.includes(num)) {
             arr.push(num);
         }
